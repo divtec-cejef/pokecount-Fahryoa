@@ -7,9 +7,18 @@
 
 "use strict"; // Interprètation stricte du code
 
-let compteur = 0;
 const compteurEl = document.getElementById("compteur-el");
 const sauvegardeEl = document.getElementById("sauvegarde-el");
+const btnReset = document.getElementById("btnReset");
+const capturerBtn = document.getElementById("capturer-btn");
+const sauvegarderBtn = document.getElementById("sauvegarder-btn");
+
+
+capturerBtn.addEventListener("click", capturer);
+sauvegarderBtn.addEventListener("click", sauvegarder);
+btnReset.addEventListener("click", effacerSauvegarde);
+
+let compteur = 0;
 
 window.addEventListener("load", () => { // Attendre que la page soit chargée pour exécuter le code
     sauvegardeEl.innerHTML = localStorage.getItem("captures") || ""; // Charger les captures sauvegardées ou une chaîne vide
@@ -41,12 +50,3 @@ function effacerSauvegarde() {
     localStorage.clear()
     location.reload();
 }
-
-const capturerBtn = document.getElementById("capturer-btn");
-const sauvegarderBtn = document.getElementById("sauvegarder-btn");
-capturerBtn.addEventListener("click", capturer);
-sauvegarderBtn.addEventListener("click", sauvegarder);
-
-const btnReset = document.getElementById("btnReset");
-
-btnReset.addEventListener("click", effacerSauvegarde);
