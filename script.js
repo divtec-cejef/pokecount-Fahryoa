@@ -37,7 +37,16 @@ function sauvegarder() {
     compteurEl.textContent = compteur;
 }
 
+function effacerSauvegarde() {
+    localStorage.clear()
+    location.reload();
+}
+
 const capturerBtn = document.getElementById("capturer-btn");
 const sauvegarderBtn = document.getElementById("sauvegarder-btn");
 capturerBtn.addEventListener("click", capturer);
 sauvegarderBtn.addEventListener("click", sauvegarder);
+
+const btnReset = document.getElementById("btnReset");
+
+btnReset.addEventListener("click", effacerSauvegarde);
