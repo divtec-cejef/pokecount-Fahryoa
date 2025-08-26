@@ -47,6 +47,6 @@ function sauvegarder() {
 }
 
 function effacerSauvegarde() {
-    localStorage.clear()
+    localStorage.removeItem("captures");
     location.reload();
 }
